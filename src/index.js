@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const orderRoutes = require('./routes/orderRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
+const healthRoutes = require('./routes/healthRoutes');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use('/api/health', healthRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/admin/notifications', notificationRoutes);
 
